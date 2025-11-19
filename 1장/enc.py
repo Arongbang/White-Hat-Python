@@ -2,7 +2,7 @@ def encryption():
     print('Encryption')
 
 if __name__ == '__main__':
-    print('enc.py가 메인임')
+    print('enc.py가 메인')
     encryption()
 else:
-    print('enc.py가 다른 모듈에서 임포트 되어 사용됨')
+    print('enc.py가 다른 모듈에서 임포트 되어 사용')
