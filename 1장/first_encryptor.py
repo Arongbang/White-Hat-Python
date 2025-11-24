@@ -26,11 +26,13 @@ def decrypt(msg, decbook):
     return msg
 
 if __name__ == '__main__':
-    plaintext = 'I love you with all my heart'
-
-    encbook, decbook = makeCodebook()
-    ciphertext = encrypt(plaintext, encbook)
-    print(ciphertext)
-
-    deciphertext = decrypt(ciphertext, decbook)
-    print(deciphertext)
+	h = open('plain.txt', 'rt')
+	content = h.read()
+	h.close()
+	
+	encbook, decbook = makeCodebook()
+	content = encrypt(content, encbook)
+	
+	h = open('encryption.txt', 'wt+')
+	h.write(content)
+	h.close()
