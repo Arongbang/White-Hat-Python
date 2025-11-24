@@ -1,4 +1,5 @@
-from . import enc
+from . import enc		#Search to Same Level Module
+#import enc		#Search to Top Level Module
 
 def decryption():
     print('Decryption')
