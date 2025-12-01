@@ -5,14 +5,14 @@ class myAES():
 	def __init__(self, keytext, ivtext):
 		hash = SHA.new()
 		
-		hash.update(keytext.encode(utf-8))
+		hash.update(keytext.encode('utf-8'))
 		key = hash.digest()
 		#key 값을 16바이트(128비트)로 변경
 		self.key = key[:16]
 		#256 비트 키로 암호화 할 경우
 		#self.key = key
 		
-		hash.update(ivtext.encode(utf-8))
+		hash.update(ivtext.encode('utf-8'))
 		iv = hash.digest()
 		self.iv = iv[:16]
 	
@@ -32,13 +32,14 @@ class myAES():
 		return header+plaintext+filler
 	
 	def enc(self, plaintext):
+		plaintext = self.makeEnabled(plaintext)
 		aes = AES.new(self.key, AES.MODE_CBC, self.iv)
 		encmsg = aes.encrypt(plaintext)
 		
 		return encmsg
 	
 	def dec(self, ciphertext):
-		aes = AES.new(self.key, AES.MODE.CBC, self.iv)
+		aes = AES.new(self.key, AES.MODE_CBC, self.iv)
 		decmsg = aes.decrypt(ciphertext)
 		
 		
@@ -52,8 +53,21 @@ class myAES():
 			decmsg = decmsg[16:]
 			
 		return decmsg
-		
-		
+
+def main():
+	keytext = 'samsjang'
+	ivtext = '1234'
+	msg = 'python3x'
 	
+	myCipher = myAES(keytext, ivtext)
+	ciphered = myCipher.enc(msg)
+	deciphered = myCipher.dec(ciphered)
+	
+	#결과에서 b'는 바이트 객체라는 뜻
+	print('ORIGINAL:\t%s' %msg)
+	print('CIPHERED:\t%s' %ciphered)
+	print('DECIPHERED:\t%s' %deciphered)
+	
+main()	
 	
 
