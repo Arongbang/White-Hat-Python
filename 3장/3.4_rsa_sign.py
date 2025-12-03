@@ -21,7 +21,7 @@ def rsa_verify(msg, public_key, signature):
 	try:
 		pkcs1_15.new(public_key).verify(h, signature)
 		print('Authentic')
-	except Exception e:
+	except Exception as e:
 		print(e)
 		print('Not Authentic')
 	
