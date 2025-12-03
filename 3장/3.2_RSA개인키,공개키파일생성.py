@@ -2,7 +2,7 @@ from Cryptodome.PublicKey import RSA
 
 def createPEM():
 	private_key = RSA.generate(1024)
-	h = open('private_key.pem', 'wb+')
+	h = open('privatekey.pem', 'wb+')
 	h.write(private_key.exportKey('PEM'))
 	h.close()
 	
