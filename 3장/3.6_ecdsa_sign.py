@@ -1,4 +1,5 @@
 from Cryptodome.PublicKey import ECC
+#DSS를 이용하여 전자서명을 위한 객체 생성
 from Cryptodome.Signature import DSS
 from Cryptodome.Hash import SHA256 as SHA
 
@@ -9,9 +10,9 @@ def readPEM_ECC(pemfile):
 
 
 def ecdsa_sign(msg):
-	private_key = readPEM_ECC('privkey_eccdsa.pem')
+	private_key = readPEM_ECC('privkey_ecdsa.pem')
 	sha = SHA.new(msg)
-	#DSS를 이용하여 전자서명을 위한 객체 생성
+	
 	signer = DSS.new(private_key, 'fips-186-3')
 	signature = signer.sign(sha)
 	return signature
