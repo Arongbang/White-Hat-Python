@@ -4,7 +4,7 @@ from Cryptodome.Hash import SHA256 as SHA
 
 def readPEM_ECC(pemfile):
 	with open(pemfile, 'r') as h:
-		key = ECC.importKey(h.read())
+		key = ECC.import_key(h.read())
 	return key
 
 
