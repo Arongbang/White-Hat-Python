@@ -5,7 +5,7 @@ from Cryptodome.Hash import SHA256 as SHA
 #PEM파일에 저장된 RSA개인키/공개키를 읽어서 리턴
 def readPEM(pemfile):
 	h = open(pemfile, 'r')
-	key = RSA.importkey(h.read())
+	key = RSA.importKey(h.read())
 	h.close()
 	return key
 	
