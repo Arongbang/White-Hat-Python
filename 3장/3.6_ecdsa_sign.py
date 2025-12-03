@@ -14,7 +14,9 @@ def ecdsa_sign(msg):
 	sha = SHA.new(msg)
 	
 	signer = DSS.new(private_key, 'fips-186-3')
+	#sign() : 메시지에 서명
 	signature = signer.sign(sha)
+	print('ecdsa_sign:::signature : %s' %signature)
 	return signature
 	
 
@@ -22,6 +24,8 @@ def ecdsa_verify(msg, signature):
 	public_key = readPEM_ECC('pubkey_ecdsa.pem')
 	sha = SHA.new(msg)
 	verifier = DSS.new(public_key, 'fips-186-3')
+	print('ecdsa_verify:::sha : %s' %sha)
+	print('ecdsa_verify:::signature : %s' %signature)
 	try:
 		verifier.verify(sha, signature)
 		print('Authentic')
