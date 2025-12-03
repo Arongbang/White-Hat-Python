@@ -10,7 +10,7 @@ def readPEM(pemfile):
 
 def rsa_sign(msg):
 	private_key = readPEM('privatekey.pem')
-	public_key = private_key.publicKey()
+	public_key = private_key.publickey()
 	h = SHA.new(msg)
 	signature = pkcs1_15.new(private_key).sign(h)
 	return public_key, signature
