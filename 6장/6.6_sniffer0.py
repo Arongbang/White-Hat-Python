@@ -16,11 +16,13 @@ def sniffing(host):
 		
 	sniffer = socket(AF_INET, SOCK_RAW, sock_protocol)
 	sniffer.bind((host, 0))
+	#setsockopt() : 가로채는 패킷에 IP 헤더를포함하라고 소켓의 옵션으로 지정
 	sniffer.setsockopt(IPPROTO_IP, IP_HDRINCL, 1)
 	
 	#윈도우인 경우
 	if os.name == 'nt':
 		sniffer.ioctl(SIO_RCVALL, RCVALL_ON)
+	#recvfrom(65565): 소켓으로 패킷이 들어올 때까지 대기 & 65565는 버퍼의 크기로 65565 바이트를 의미
 	packet = sniffer.recvfrom(65565)
 	print(packet)
 	
@@ -30,6 +32,8 @@ def sniffing(host):
 	
 	
 def main():
+	#gethostbyname() : 호스트 이름을 IPv4 형식으로 변경
+	#gethostname() : 현재 호스트의 이름을 리턴
 	host = gethostbyname(gethostname())
 	print('START SNIFFING at [%s]' %host)
 	sniffing(host)
