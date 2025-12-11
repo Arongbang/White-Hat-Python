@@ -10,6 +10,7 @@ def recvData(sock):
 		data = sock.recvfrom(65565)
 	except timeout:
 		data = ''
+	#첫번째 멤버인 바이트코드에 IP 헤더가 포함되어 있기 때문에 data[0]을 리턴
 	return data[0]
 
 
