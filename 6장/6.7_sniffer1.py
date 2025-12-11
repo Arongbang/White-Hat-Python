@@ -36,7 +36,7 @@ def sniffing(host):
 	try:
 		while True:
 			data = recvData(sniffer)
-			print('SNIFFED [%d] %s' %(count, sniffer[:20]))
+			print('SNIFFED [%d] %s' %(count, data[:20]))
 			count += 1
 			
 	except KeyboardInterrupt:
