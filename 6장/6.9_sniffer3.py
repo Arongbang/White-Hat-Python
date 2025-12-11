@@ -33,7 +33,7 @@ def getIPHeaderLen(ipheader):
 	return ipheaderlen
 	
 def getTypeCode(icmp):
-	icmpheader = struct.unpack('!BB', icmp)
+	icmpheader = struct.unpack('!BB', icmp[:2])
 	icmp_type = icmpheader[0]
 	icmp_code = icmpheader[1]
 	return (icmp_type, icmp_code)
