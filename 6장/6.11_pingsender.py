@@ -14,7 +14,7 @@ def main():
 	host = gethostbyname(gethostname())
 	subnet = host + '/24'
 	for ip in IPNetwork(subnet):
-		t = Thread(target=sendPing(), args=(ip))
+		t = Thread(target=sendPing, args=(ip,)
 		t.start()
 	
 	
