@@ -12,6 +12,7 @@ def sendMsg(subnet, msg):
 		try:
 			print('SENDING MESSAGE to [%s]' %ip)
 			#sendto()에 유니코드로 메시지 전달하면 오류 발생
+			#sendto() : 서브네트워크의 모든 IP에 대해 9000번 포트로 메시지 전송
 			sock.sendto(msg.encode('utf-8'), ('%s' %ip, 9000))
 		except Exception as e:
 			print(e)
