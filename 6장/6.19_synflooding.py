@@ -1,3 +1,4 @@
+#Random IP에서 Target IP의 1~1024포트에 TCP 연결 요청
 from scapy.all import *
 from random import shuffle
 
