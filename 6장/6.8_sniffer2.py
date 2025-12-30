@@ -66,7 +66,7 @@ def sniffing(host):
 			protocol = getProtocol(ipheader)
 			src_ip, dest_ip = getIP(ipheader)
 			
-			if protocol != 'ICMP':
+			if protocol != 'TCP':
 				continue
 			
 			print('\nSNIFFED [%d] ++++++++++++' %count)
