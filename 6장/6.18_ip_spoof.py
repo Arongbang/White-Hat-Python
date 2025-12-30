@@ -9,7 +9,8 @@ def ipSpoof(srcip, dstip):
 
 
 def main():
-	srcip = '172.21.70.227'
+	#srcip = '172.21.70.227'
+	srcip = '172.21.70.66'
 	dstip = '192.168.0.102'
 	ipSpoof(srcip, dstip)
 	
