@@ -10,7 +10,7 @@ def ipSpoof(srcip, dstip):
 
 def main():
 	srcip = '172.21.70.227'
-	dstip = '172.21.70.180'
+	dstip = '192.168.0.102'
 	ipSpoof(srcip, dstip)
 	
 	print('SENT SPOOFED IP [%s] to [%s]' %(srcip, dstip))
