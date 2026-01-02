@@ -5,8 +5,8 @@ from scapy.all import *
 
 def dnsSpoof(packet):
 	spoofDNS = '172.21.70.227'
-	drcip = packet[IP].src
-	sstip = packet[IP].dst
+	dstip = packet[IP].src
+	srcip = packet[IP].dst
 	sport = packet[UDP].sport
 	dport = packet[UDP].dport
 	
