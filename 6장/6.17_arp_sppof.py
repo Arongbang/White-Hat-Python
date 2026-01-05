@@ -9,7 +9,7 @@ from time import sleep
 def getMAC(ip):
 	ans, unans = srp(Ether(dst='ff:ff:ff:ff:ff:ff')/ARP(pdst=ip), timeout=5, retry=3)
 	for s, n in ans:
-		return r.sprintf('%Ether.src%')
+		return n.sprintf('%Ether.src%')
 
 		
 #srcip(공격자 MAC주소),  targetip(targetmac) 인 ARP패킷 생성 & Target IP에 ARP패킷 전송
