@@ -1,3 +1,4 @@
+#Referer 헤더 추가 코드
 #HTTP 요청 메시지에 Referer 헤더를추가하여 목적지 URL로 연결
 from urllib.request import Request, urlopen
 
