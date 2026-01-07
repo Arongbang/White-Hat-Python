@@ -10,7 +10,7 @@ def addReferer(url):
 	#urlopen(url, data=데이터) 와 같이 data를 지정하면 HTTP POST 요청메시지 생성 및 목적지 URL로 요청
 	#서버 요청에 대한 응답을 응답 객체(http.client.HTTPResponse) h로 받아서 처리
 	with urlopen(req) as h:
-		#서버가 보내준 응답 body를 “바이트(bytes)”로 읽음
+		#h.read() : 서버가 보내준 응답 body를 “바이트(bytes)”로 읽음
 		print(h.read().decode('utf-8'))
 	
 
