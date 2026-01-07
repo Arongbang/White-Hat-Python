@@ -7,7 +7,7 @@ import re
 def cookieSniffer(packet):
 	tcp = packet.getlayer('TCP')
 	#'Cookie: 문자열‘과 동일한 패턴을 찾기 위해
-	cookie = re.search(r'Cookie: (.+)', str(tcp.payload))
+	cookie = re.search(r'Cookie(.+)', str(tcp.payload))
 	
 	if cookie:
 		print(---'COOKIE SNIFFED\n[%s]' %cookie.group())
