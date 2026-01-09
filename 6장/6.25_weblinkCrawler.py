@@ -103,7 +103,7 @@ def finalize():
 
 
 def main():
-	targeturl = 'http://localhost/DVWA'
+	targeturl = 'http://httpbin.org'
 	home = 'http://' + targeturl.split('/')[2]
 	print('+++ WEB LINK CRAWLER START > [%s]' %targeturl)
 	runCrawler(home, targeturl)
