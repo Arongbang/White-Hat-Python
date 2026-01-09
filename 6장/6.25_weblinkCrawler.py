@@ -12,7 +12,7 @@ href_links = []
 #parent : 상위 url 주소
 def getLinks(doc, home, parent):
 	global href_links
-	href_pattern = [r'href="([^"]+)"', r'href=([^\s>]+)', r"href='([^']+)'"]
+	href_pattern = [r'href=\S+"', r'href=\S+ ', r'href=\S+\'']
 	tmp_urls = []
 	
 	for n in range(len(href_pattern)):
