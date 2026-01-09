@@ -28,10 +28,10 @@ def getLinks(doc, home, parent):
 		else:
 			url = url.split('"')[1]
 		
-		if len(url) is 0:
+		if len(url) == 0:
 			continue
 		
-		if url.find('http://') is -1:
+		if url.find('http://') == -1:
 			if url[0] == '/':
 				url = home + url
 			#앞의 2글자가 ./ 일때
