@@ -101,7 +101,7 @@ def finalize():
 
 
 def main():
-	targeturl = 'http://www.iaidol.com'
+	targeturl = 'http://localhost/DVWA'
 	home = 'http://' + targeturl.split('/')[2]
 	print('+++ WEB LINK CRAWLER START > [%s]' %targeturl)
 	runCrawler(home, targeturl)
