@@ -24,7 +24,7 @@ def getLinks(doc, home, parent):
 		url = url.replace('\'', '"')
 		
 		print('url : %s' %url)
-		#맨 마지막이 공백 || 쌍따옴표가 없음
+
 		if url.endswith(' ') or '"' not in url:
 			url = url.split('=')[1]
 		else:
