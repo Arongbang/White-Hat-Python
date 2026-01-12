@@ -28,7 +28,8 @@ def getScreenshot():
 	
 	#컬러 데이터를 memDC에 비트 블록 단위로 전송
 	memDC.BitBlt((0,0), (width, height), pDC, (left, top), win32con.SRCCOPY)
-	screenshot.SaveBitmapFile(memDC, 'c:/6.31_screenshot.bmp')
+	#루트 디렉토리 쓰기 권한은 요즘에는 불가하여 변경
+	screenshot.SaveBitmapFile(memDC, r'C:\Users\정호\Desktop\6.32_screenshot.bmp')
 	
 	#memDC & screenshot 객체 제거
 	memDC.DeleteDC()
